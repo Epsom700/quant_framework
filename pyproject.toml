@@ -1,0 +1,29 @@
+[project]
+name = "quant_framework"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "click>=8.1",
+    "fredapi>=0.5.2",
+    "hmmlearn>=0.3.3",
+    "httpx>=0.28.1",
+    "mcp[cli]>=1.26.0",
+    "pandas>=3.0.1",
+    "pydantic>=2.12.5",
+    "python-dotenv>=1.2.2",
+    "pyyaml>=6.0.3",
+    "scikit-learn>=1.8.0",
+    "xgboost>=3.2.0",
+]
+
+[project.scripts]
+quant = "quant_framework.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["quant_framework"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

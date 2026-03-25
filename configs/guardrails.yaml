@@ -1,0 +1,59 @@
+# Example guardrail configuration for quant_framework
+# Edit this file at runtime — changes are picked up automatically (hot-reload).
+
+defaults:
+  max_records: 10000
+  required_fields: []
+  redacted_fields: []
+
+rules:
+  run_linear:
+    max_records: 5000
+    required_fields:
+      - model
+      - r_squared
+      - coefficients
+    redacted_fields: []
+
+  run_random_forest:
+    max_records: 5000
+    required_fields:
+      - model
+      - r_squared
+      - feature_importances
+    redacted_fields: []
+    roles:
+      analyst:
+        max_records: 1000
+        redacted_fields:
+          - model
+
+  run_bayesian_ridge:
+    max_records: 5000
+    required_fields:
+      - model
+      - r_squared
+      - posterior_std
+    redacted_fields: []
+
+  run_hmm:
+    max_records: 5000
+    required_fields:
+      - hidden_states
+      - transition_matrix
+    redacted_fields: []
+
+  run_svr:
+    max_records: 5000
+    required_fields:
+      - model
+      - r_squared
+    redacted_fields: []
+
+  run_xgboost:
+    max_records: 5000
+    required_fields:
+      - model
+      - r_squared
+      - feature_importances
+    redacted_fields: []

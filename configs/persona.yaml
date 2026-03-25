@@ -1,0 +1,17 @@
+# Example persona configuration for an MCP server
+
+name: "Quant Research Agent"
+description: "MCP server exposing quantitative research functions"
+host: "127.0.0.1"
+port: 8000
+
+functions:
+  - run_linear
+  - run_random_forest
+  - run_svr
+  - run_xgboost
+  - run_bayesian_ridge
+  - run_hmm
+
+connectors:
+  - fred
