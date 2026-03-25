@@ -138,6 +138,11 @@ quant_framework/
 │   └── guardrails.yaml           # Validation rules
 ├── examples/
 │   └── basic_usage.py            # End-to-end demo script
+├── experiments/                  # Autonomous research loop files
+│   ├── evaluate.py               # Evaluation harness (scalar metric)
+│   ├── prepare_snapshot.py       # Data snapshot caching script
+│   └── strategy.py               # Editable strategy sandbox
+├── program.md                    # Human-directed research agenda
 └── quant_framework/              # Package root
     ├── cli.py                    # CLI (quant serve)
     ├── core/
@@ -216,6 +221,21 @@ FunctionRegistry.list_by_category("modelling") # filter by category
 # Call by name
 result = FunctionRegistry.call("run_linear", df=df, target="GDP")
 ```
+
+---
+
+## The Autonomous Research Loop
+
+The framework includes a fully autonomous research loop designed to test hypotheses and incrementally improve a quantitative strategy.
+
+It builds on the three-layer contract outlined in `program.md`:
+1. **Fixed Evaluation Harness** (`experiments/evaluate.py`): Scores the strategy on a fixed historical dataset.
+2. **Strategy Sandbox** (`experiments/strategy.py`): The single file where the agent tests features, model choices, and signal logic.
+3. **Human Direction** (`program.md`): Defines the agent's constraints and the high-level research agenda.
+
+### Running the Loop
+
+Provide the `program.md` file to any autonomous coding agent (like Claude or the built-in system) and instruct it to begin. The agent will read `program.md`, modify `experiments/strategy.py`, run `evaluate.py`, and use a keep/discard ratchet to only commit changes that improve the composite score.
 
 ---
 
