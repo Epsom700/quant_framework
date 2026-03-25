@@ -10,7 +10,7 @@ Inspired by [Karpathy's autoresearch](https://github.com/karpathy/autoresearch) 
 
 ## Prerequisites
 
-- **Python 3.14+**
+- **Python 3.12.10+**
 - **[uv](https://docs.astral.sh/uv/)** — Python package manager
 - **FRED API Key** — [Get one free from FRED](https://fred.stlouisfed.org/docs/api/api_key.html)
 
